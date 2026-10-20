@@ -1,0 +1,68 @@
+# File catalog
+
+Every tracked-intent file; dependencies/private outputs are excluded.
+
+- `.gitattributes` — Normalize source text to LF and preserve binary screenshot assets.
+- `.github/workflows/codeql.yml` — # Security analysis by Jason Stys. Jobs: Python and JavaScript/TypeScript CodeQL.
+- `.github/workflows/release.yml` — # Manual draft-release packaging by Jason Stys. Never publishes automatically.
+- `.github/workflows/validate.yml` — # Validation by Jason Stys. Jobs: Python/science, browser integration, portable native smoke.
+- `.gitignore` — Exclude dependencies, runtime/private data, histories and generated builds from Git.
+- `.prettierignore` — Exclude generated indexes, locks and build/dependency trees from formatting.
+- `.prettierrc.json` — Shared readable browser/configuration/Markdown formatting options.
+- `CMakeLists.txt` — # C++20 thermal analogy by Jason Stys. Targets: reactor_model, reactor_core, core_tests.
+- `LICENSE` — MIT License
+- `README.md` — # Reactor Systems Simulator
+- `docs/API.md` — # Local API and evidence contract
+- `docs/ARCHITECTURE.md` — # Architecture and decision record
+- `docs/MODEL.md` — # Model, assumptions and limits
+- `docs/RELEASE.md` — # Build, release and rollback
+- `docs/SECURITY.md` — # Security and privacy
+- `docs/THIRD_PARTY.md` — # Dependencies and research
+- `docs/USER_GUIDE.md` — # User guide
+- `docs/VALIDATION.md` — # Validation evidence and test strategy
+- `docs/images/workbench.jpg` — Binary screenshot asset from local application validation
+- `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
+- `launcher.py` — """Portable application entry point by Jason Stys; main and argv: docs/CODE_INDEX.md.
+- `licenses/PYTHON.txt` — A. HISTORY OF THE SOFTWARE
+- `native/cli.cpp` — /* Bounded native JSON worker by Jason Stys.
+- `native/model.cpp` — /* Conservative educational thermal analogy by Jason Stys.
+- `native/model.hpp` — /* Fictional thermal-network contracts by Jason Stys; NOT reactor physics or plant controls.
+- `native/tests.cpp` — /* Native numerical and edge-case regression checks by Jason Stys.
+- `package-lock.json` — Resolved npm dependency graph with download integrity values.
+- `package.json` — Pinned browser dependencies, Node version contract and build/test/audit scripts.
+- `playwright.config.ts` — /** Cross-engine website integration configuration by Jason Stys.
+- `pyproject.toml` — Python metadata, supported runtimes, strict lint/type/test and coverage gates.
+- `requirements-dev.in` — Scientific test, type, style, audit and packaging dependency inputs.
+- `requirements-dev.lock` — Universal pinned development/build graph with distribution hashes.
+- `requirements.in` — Standard-library-only Python runtime declaration (no third-party runtime packages).
+- `requirements.lock` — Universal pinned Python runtime graph with approved distribution hashes.
+- `simulator/__init__.py` — """Reactor Systems Simulator by Jason Stys. Constants: VERSION; line map: docs/CODE_INDEX.md."""
+- `simulator/__main__.py` — """Local website launcher and reproducible export CLI by Jason Stys.
+- `simulator/engine.py` — """Bounded C++ thermal-worker adapter and reproducible evidence by Jason Stys.
+- `simulator/reports.py` — """Portable JSON/CSV/HTML evidence and transactional history by Jason Stys.
+- `simulator/resources/history.sql` — -- Immutable local experiment history by Jason Stys. Tables/triggers: docs/CODE_INDEX.md.
+- `simulator/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
+- `tests/display.test.ts` — /** Pure presentation regression tests by Jason Stys; symbols/variables: docs/CODE_INDEX.md. */
+- `tests/test_docs.py` — """Cross-platform generated-documentation regression tests by Jason Stys.
+- `tests/test_io.py` — """CLI, report, SQLite and actual loopback HTTP integration tests by Jason Stys.
+- `tests/test_science.py` — """Independent numerical and worker-boundary validation by Jason Stys.
+- `tests/ui.spec.ts` — /** Production browser, accessibility, export and resilience tests by Jason Stys.
+- `tools/build_native.py` — """Cross-platform C++ build/test orchestration by Jason Stys.
+- `tools/measure.py` — """Regenerate local numerical/performance evidence by Jason Stys.
+- `tools/package_app.py` — """Build portable native bundles from reviewed source by Jason Stys.
+- `tools/prepare_release.py` — """Fail-closed draft release preparation by Jason Stys.
+- `tools/reference.py` — """Independent small RK4 reference by Jason Stys.
+- `tools/smoke_app.py` — """Actual frozen-executable export and loopback smoke test by Jason Stys.
+- `tools/upload_release.py` — """Upload only a freshly smoke-tested native bundle to its draft by Jason Stys.
+- `tools/verify_repo.py` — """Generate/check exact-line code and file inventories by Jason Stys.
+- `tsconfig.json` — Strict TypeScript contracts for browser, unit and end-user test code.
+- `vitest.config.ts` — /** Pure display-logic tests by Jason Stys; configuration inventory: docs/CODE_INDEX.md. */
+- `web/display.ts` — /** Typed thermal evidence and pure chart helpers by Jason Stys.
+- `web/env.d.ts` — /** Vite static asset typing by Jason Stys; reference declarations: docs/CODE_INDEX.md. */
+- `web/index.html` — <!-- Reactor Systems Simulator UI by Jason Stys. Element IDs and variables: docs/CODE_INDEX.md. -->
+- `web/main.ts` — /** Applied-experiment controller by Jason Stys.
+- `web/style.css` — /* Responsive thermal workbench by Jason Stys. Selectors/variables: docs/CODE_INDEX.md. */
+- `web/tokens.css` — /* Shared accessible color tokens by Jason Stys; variable locations: docs/CODE_INDEX.md. */
+- `web/vite.config.ts` — /** Local production asset build by Jason Stys. Configuration variables: docs/CODE_INDEX.md. */
+- `docs/CODE_INDEX.md` — Generated exact-line source inventory.
+- `docs/FILE_CATALOG.md` — This generated complete file index.

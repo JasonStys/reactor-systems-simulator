@@ -1,0 +1,301 @@
+<!-- Reactor Systems Simulator UI by Jason Stys. Element IDs and variables: docs/CODE_INDEX.md. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An educational fictional thermal-system experiment workbench by Jason Stys."
+    />
+    <title>Reactor Systems Simulator · Jason Stys</title>
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <a class="skip" href="#experiment">Skip to experiment</a>
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="Reactor Systems Simulator home"
+        ><span class="brand-icon">R<span>∿</span></span
+        ><span>REACTOR SYSTEMS<span class="brand-sub">SIMULATOR / EDUCATIONAL LAB</span></span></a
+      >
+      <nav aria-label="Main">
+        <a href="#guide">How it works</a
+        ><a
+          href="https://github.com/JasonStys/reactor-systems-simulator"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Source ↗</a
+        ><a
+          class="author"
+          href="https://github.com/JasonStys"
+          target="_blank"
+          rel="noopener noreferrer"
+          >By Jason Stys ↗</a
+        >
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow"><span class="dot"></span> SYSTEMS THINKING, MADE VISIBLE</p>
+          <h1>Understand the heat.<br /><span>Inspect the assumptions.</span></h1>
+          <p class="intro">
+            Change a fictional thermal system. Follow the energy. Compare the response against a
+            fixed reference, one experiment at a time.
+          </p>
+        </div>
+        <aside class="model-note">
+          <span class="badge">MODEL BOUNDARY</span>
+          <h2>A learning tool.<br />Not a reactor model.</h2>
+          <p>
+            Invented, dimensionless values. No nuclear physics, radiation estimates, real-plant
+            safety limits or hardware connections. Source-off does not model nuclear shutdown.
+          </p>
+          <a href="#limitations">Read the assumptions ↓</a>
+        </aside>
+      </section>
+      <section class="workspace" id="experiment" aria-label="Thermal experiment">
+        <aside class="controls panel">
+          <div class="section-heading">
+            <span class="eyebrow">01 / CONFIGURE</span><span class="tag">LOCAL ONLY</span>
+          </div>
+          <h2>Your experiment</h2>
+          <p class="muted small">
+            All values are normalized teaching parameters, not engineering specifications.
+          </p>
+          <form id="settings">
+            <label for="scenario">Scenario</label
+            ><select id="scenario" name="scenario">
+              <option value="baseline">Constant source</option>
+              <option value="demand-step">Demand step · t = 120</option>
+              <option value="cooling-dip">Cooling dip · t = 180–300</option>
+              <option value="source-off">Source input off · t = 240</option>
+            </select>
+            <label for="demand">Source demand <span>relative input</span></label
+            ><select id="demand" name="demand">
+              <option value="0.75">0.75 · lower</option>
+              <option value="1">1.00 · reference</option>
+              <option value="1.25">1.25 · higher</option>
+            </select>
+            <label for="cooling">Cooling factor <span>heat rejection</span></label
+            ><select id="cooling" name="cooling">
+              <option value="0.5">0.50 · reduced</option>
+              <option value="1">1.00 · reference</option>
+              <option value="1.5">1.50 · increased</option>
+            </select>
+            <label for="inertia">Thermal inertia <span>both capacities</span></label
+            ><select id="inertia" name="inertia">
+              <option value="0.75">0.75 · faster response</option>
+              <option value="1">1.00 · reference</option>
+              <option value="1.25">1.25 · slower response</option>
+            </select>
+            <label for="feedback">Generic temperature derating</label
+            ><select id="feedback" name="feedback">
+              <option value="0">Off</option>
+              <option value="0.15">0.15 · reduce demand as hot node rises</option>
+            </select>
+            <label for="duration">Time horizon <span>model time, not seconds</span></label
+            ><select id="duration" name="duration">
+              <option value="300">300 model-time units</option>
+              <option value="600">600 model-time units</option>
+            </select>
+            <button type="submit" id="apply">Run experiment <span>↗</span></button
+            ><button type="button" id="reset" class="secondary">Reset to reference</button>
+          </form>
+          <p id="status" role="status" class="status">Preparing local model…</p>
+          <button id="retry" hidden class="secondary">Retry experiment</button>
+        </aside>
+        <div class="results">
+          <section class="panel system-panel" aria-labelledby="system-title">
+            <div class="section-heading">
+              <span class="eyebrow">02 / OBSERVE</span
+              ><span class="tag" id="run-label">FICTIONAL THERMAL NETWORK</span>
+            </div>
+            <div class="title-row">
+              <h2 id="system-title">From source to useful output</h2>
+              <span class="time-label">t = <strong id="clock">0</strong></span>
+            </div>
+            <svg
+              class="network"
+              viewBox="0 0 760 170"
+              role="img"
+              aria-labelledby="network-title network-desc"
+            >
+              <title id="network-title">Two-node thermal energy network</title>
+              <desc id="network-desc">
+                A relaxing heat source transfers energy to a hot node, then a cooling node. Rejected
+                energy is partitioned into an arbitrary thirty percent useful-output proxy and
+                seventy percent remainder.
+              </desc>
+              <path class="pipe" d="M100 76H630M630 76V130H700" />
+              <path class="flow" d="M100 76H630" />
+              <circle class="source-node" cx="55" cy="76" r="36" />
+              <text x="55" y="83" class="node-symbol">∿</text>
+              <rect class="hot-node" x="175" y="39" width="125" height="74" rx="14" />
+              <rect class="cool-node" x="385" y="39" width="125" height="74" rx="14" />
+              <rect class="output-node" x="595" y="39" width="125" height="74" rx="14" />
+              <text x="237" y="70">HOT NODE</text>
+              <text id="hot-svg" x="237" y="96" class="node-value">0.000</text>
+              <text x="447" y="70">COOL NODE</text>
+              <text id="cool-svg" x="447" y="96" class="node-value">0.000</text>
+              <text x="657" y="70">USEFUL PROXY</text>
+              <text id="useful-svg" x="657" y="96" class="node-value">0.000</text>
+              <text x="55" y="137">SOURCE</text>
+              <text x="657" y="157">70% REMAINDER</text>
+              <text x="139" y="62">→</text>
+              <text x="343" y="62">→</text>
+              <text x="552" y="62">→</text>
+            </svg>
+            <div class="transport">
+              <button id="play" class="play" aria-label="Play model timeline" disabled>
+                ▶ Play</button
+              ><label class="sr-only" for="timeline">Model time</label
+              ><input id="timeline" type="range" min="0" max="600" value="0" step="1" /><span
+                id="horizon"
+                >/ 600</span
+              >
+            </div>
+            <p id="event" class="event">Initial state · all nodes start at zero.</p>
+            <div class="metrics">
+              <div><span>Source rate</span><strong id="source-value">0.000</strong></div>
+              <div><span>Hot-node offset</span><strong id="hot-value">0.000</strong></div>
+              <div><span>Cool-node offset</span><strong id="cool-value">0.000</strong></div>
+              <div><span>Useful proxy</span><strong id="useful-value">0.000</strong></div>
+            </div>
+          </section>
+          <section class="panel chart-panel">
+            <div class="title-row">
+              <div>
+                <span class="eyebrow">03 / COMPARE</span>
+                <h2>Thermal response</h2>
+              </div>
+              <div class="legend">
+                <span class="orange">Hot</span><span class="teal">Cool</span
+                ><span class="dashed">Reference</span>
+              </div>
+            </div>
+            <svg
+              id="temperature-chart"
+              class="chart"
+              viewBox="0 0 700 220"
+              role="img"
+              aria-label="Experiment and fixed-reference thermal response curves"
+            ></svg>
+            <p class="small muted">
+              Solid: your experiment. Dashed: constant source, unit factors, no derating. Same
+              horizon and zero initial states. Vertical axis: normalized offsets; horizontal: model
+              time.
+            </p>
+          </section>
+          <section class="panel ledger-panel">
+            <div class="title-row">
+              <div>
+                <span class="eyebrow">04 / ACCOUNT</span>
+                <h2>Every unit has a destination</h2>
+              </div>
+              <span class="tag">NUMERICAL CHECK</span>
+            </div>
+            <div class="ledger">
+              <div><span>Energy in</span><strong id="energy-in">0.000</strong></div>
+              <span>=</span>
+              <div><span>Stored change</span><strong id="energy-stored">0.000</strong></div>
+              <span>+</span>
+              <div><span>Total rejected</span><strong id="energy-out">0.000</strong></div>
+            </div>
+            <p class="small muted">
+              Useful output is a 30% subset of rejected energy, not an extra energy sink.
+              Conservation does not establish physical accuracy.
+            </p>
+            <p class="residual">
+              Maximum absolute balance residual: <strong id="residual">—</strong>
+            </p>
+            <details>
+              <summary>Selected-time data and comparison</summary>
+              <table>
+                <caption>
+                  Dimensionless observations at the selected model time
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Metric</th>
+                    <th scope="col">Experiment</th>
+                    <th scope="col">Reference</th>
+                  </tr>
+                </thead>
+                <tbody id="sample-table"></tbody>
+              </table>
+            </details>
+          </section>
+          <section class="panel evidence">
+            <div class="title-row">
+              <div>
+                <span class="eyebrow">05 / REPRODUCE</span>
+                <h2>Take the evidence with you</h2>
+              </div>
+            </div>
+            <p class="small muted">
+              Full integer-time samples, configuration, method, coefficient assumptions and worker
+              fingerprint. Exports contain no account or personal data.
+            </p>
+            <div class="downloads">
+              <a id="json" class="download disabled" aria-disabled="true">JSON evidence ↗</a
+              ><a id="csv" class="download disabled" aria-disabled="true">CSV samples ↗</a
+              ><a id="html" class="download disabled" aria-disabled="true">HTML report ↗</a>
+            </div>
+            <p class="fingerprint">Run SHA-256 <code id="run-id">Not computed</code></p>
+          </section>
+        </div>
+      </section>
+      <section class="guide" id="guide">
+        <div>
+          <p class="eyebrow">THE FIELD GUIDE</p>
+          <h2>Curiosity, with context.</h2>
+          <p>
+            Choose a scenario, adjust a bounded teaching parameter, then run. Scrub or play the
+            timeline. Curves always represent the applied experiment—not unsubmitted controls.
+          </p>
+          <p>
+            Try reduced cooling, a source step, or source-off. Observe delay and stored heat without
+            treating these as predictions for a nuclear facility.
+          </p>
+        </div>
+        <div id="limitations">
+          <h3>What is—and is not—modeled</h3>
+          <ul>
+            <li>
+              Two perfectly mixed thermal nodes, a finite source lag and linear heat transfer.
+              Invented coefficients; all values dimensionless.
+            </li>
+            <li>
+              Exact source relaxation and implicit Euler heat balance at step 0.1. Integer-time
+              output. First-order discretization error remains.
+            </li>
+            <li>
+              No fuel types, rod configurations, neutron kinetics, criticality, decay heat, boiling,
+              radiation, pressure, equipment failures or real-plant limits.
+            </li>
+            <li>
+              No live monitoring, hardware control, nuclear safety claims or certification. This
+              cannot assess a real reactor.
+            </li>
+          </ul>
+          <h3>Your data stays local</h3>
+          <p>
+            No uploads, accounts, telemetry, third-party scripts or remote AI. Only your public
+            settings may be stored in this browser. Reports download to your device. Contact Jason
+            through
+            <a href="https://github.com/JasonStys" target="_blank" rel="noopener noreferrer"
+              >his GitHub profile ↗</a
+            >.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>Designed &amp; built by <a href="https://github.com/JasonStys">Jason Stys</a></span
+      ><span>FICTIONAL MODEL / REAL ENGINEERING DISCIPLINE</span
+      ><a href="#experiment">Back to experiment ↑</a>
+    </footer>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

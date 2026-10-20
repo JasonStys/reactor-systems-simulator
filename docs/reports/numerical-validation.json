@@ -1,0 +1,119 @@
+{
+  "author": "Jason Stys",
+  "measured_utc": "2026-10-20T20:52:47.897323+00:00",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "python": "3.14.6",
+  "model": "fictional-thermal-v1",
+  "units": "dimensionless",
+  "physical_validation": false,
+  "reference": "independent Python RK4 h=0.01, constant source, optional generic derating",
+  "comparisons": [
+    {
+      "time": 20,
+      "derating": 0.0,
+      "absolute_errors": {
+        "0.1": {
+          "source": 4.773959005888173e-15,
+          "hot": 0.0013707489815121265,
+          "cool": 0.0005881743281390683
+        },
+        "0.05": {
+          "source": 4.551914400963142e-15,
+          "hot": 0.0006852181417348335,
+          "cool": 0.0002944703047681463
+        }
+      }
+    },
+    {
+      "time": 20,
+      "derating": 0.15,
+      "absolute_errors": {
+        "0.1": {
+          "source": 0.00036997001406935404,
+          "hot": 0.0008560250197350294,
+          "cool": 0.0004287551783672683
+        },
+        "0.05": {
+          "source": 0.0001847804259057506,
+          "hot": 0.0004275449945790877,
+          "cool": 0.00021459809575319344
+        }
+      }
+    },
+    {
+      "time": 60,
+      "derating": 0.0,
+      "absolute_errors": {
+        "0.1": {
+          "source": 1.1102230246251565e-16,
+          "hot": 0.0009278223272517483,
+          "cool": 0.0007341943843914844
+        },
+        "0.05": {
+          "source": 3.3306690738754696e-16,
+          "hot": 0.000463964217495727,
+          "cool": 0.00036714692302708407
+        }
+      }
+    },
+    {
+      "time": 60,
+      "derating": 0.15,
+      "absolute_errors": {
+        "0.1": {
+          "source": 9.01196704886642e-5,
+          "hot": 0.0003684515669355459,
+          "cool": 0.00035645381982629676
+        },
+        "0.05": {
+          "source": 4.5024299424656355e-5,
+          "hot": 0.00018432888345754073,
+          "cool": 0.0001782692471089531
+        }
+      }
+    },
+    {
+      "time": 300,
+      "derating": 0.0,
+      "absolute_errors": {
+        "0.1": {
+          "source": 3.9968028886505635e-14,
+          "hot": 3.024143455654382e-7,
+          "cool": 2.405203169963954e-7
+        },
+        "0.05": {
+          "source": 3.552713678800501e-14,
+          "hot": 1.504970574828235e-7,
+          "cool": 1.1969539048806155e-7
+        }
+      }
+    },
+    {
+      "time": 300,
+      "derating": 0.15,
+      "absolute_errors": {
+        "0.1": {
+          "source": 1.5545952303241961e-9,
+          "hot": 8.941935636386233e-9,
+          "cool": 7.94282362104326e-9
+        },
+        "0.05": {
+          "source": 7.730491802249162e-10,
+          "hot": 4.448686974356519e-9,
+          "cool": 3.951130977952744e-9
+        }
+      }
+    }
+  ],
+  "max_sampled_balance_residual": 9.666223377280403e-11,
+  "worker_sha256": "c2b6e6c4506001c6ecd0faca358dfba23f323aea3c8ff0afa36a3971ec744803",
+  "benchmark": {
+    "repeats": 9,
+    "horizon": 600,
+    "median_cold_evidence_ms": 65.83820004016161,
+    "median_warm_evidence_ms": 10.947200004011393,
+    "scope": "two subprocesses for cold experiment/reference; warm still decodes and hashes evidence",
+    "caveat": "single host observation, includes process startup, not a performance guarantee"
+  }
+}

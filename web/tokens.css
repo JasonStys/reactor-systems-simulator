@@ -1,0 +1,10 @@
+/* Shared accessible color tokens by Jason Stys; variable locations: docs/CODE_INDEX.md. */
+:root {
+  --background: #f5f3ee;
+  --panel: #fffefa;
+  --ink: #263b36;
+  --muted: #5c6962;
+  --line: #d9ddd4;
+  --orange: #a64b1c;
+  --teal: #216c5e;
+}
