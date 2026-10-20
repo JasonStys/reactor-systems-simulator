@@ -33,6 +33,8 @@ describe("bounded optional preferences", () => {
     { ...defaults, x: 1 },
     { ...defaults, scenario: "../../x" },
     { ...defaults, cooling: true },
+    { ...defaults, toString: "unexpected" },
+    JSON.parse(JSON.stringify(defaults).slice(0, -1) + ',"__proto__":{}}'),
   ])("rejects poisoned preferences %#", (value) => {
     expect(parseSettings(value)).toEqual(defaults);
   });

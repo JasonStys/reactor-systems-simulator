@@ -130,3 +130,36 @@ test("blocked or corrupt storage does not prevent experiments", async ({ page })
   await expect(page.getByRole("status")).toContainText("Experiment ready");
   await expect(page.locator("#scenario")).toHaveValue("baseline");
 });
+
+test("rapid pause/play owns at most one animation frame", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("status")).toContainText("Experiment ready");
+  const observed = await page.evaluate(() => {
+    const originalRequest = window.requestAnimationFrame;
+    const originalCancel = window.cancelAnimationFrame;
+    const pending = new Set<number>();
+    window.requestAnimationFrame = (callback) => {
+      const id = originalRequest.call(window, callback);
+      pending.add(id);
+      return id;
+    };
+    window.cancelAnimationFrame = (id) => {
+      pending.delete(id);
+      originalCancel.call(window, id);
+    };
+    const button = document.getElementById("play")!;
+    try {
+      // Same-task events reproduce a pause/restart before the previous frame can fire.
+      button.click();
+      button.click();
+      button.click();
+      const afterRestart = pending.size;
+      button.click();
+      return { afterRestart, afterStop: pending.size };
+    } finally {
+      window.requestAnimationFrame = originalRequest;
+      window.cancelAnimationFrame = originalCancel;
+    }
+  });
+  expect(observed).toEqual({ afterRestart: 1, afterStop: 0 });
+});

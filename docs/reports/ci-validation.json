@@ -1,6 +1,6 @@
 {
   "author": "Jason Stys",
-  "scope": "Completed functional-source validation; subsequent documentation/inventory-only refinements are checked again by main's live workflows.",
+  "scope": "Completed baseline functional-source validation. Later pre-release regression fixes are checked again by main's live workflows before release.",
   "runs": [
     {
       "conclusion": "success",

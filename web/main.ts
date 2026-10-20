@@ -28,6 +28,7 @@ let run: Run | undefined;
 let cursor = 0;
 let playing = false;
 let last = 0;
+let frame: number | undefined;
 let generation = 0;
 let request: AbortController | undefined;
 const startup = readSettings();
@@ -48,6 +49,8 @@ function settings(): Settings {
 
 /** Pause playback without leaving an active animation-frame chain. */
 function stop(): void {
+  if (frame !== undefined) cancelAnimationFrame(frame);
+  frame = undefined;
   playing = false;
   play.textContent = "▶ Play";
   play.setAttribute("aria-label", "Play model timeline");
@@ -219,7 +222,7 @@ function tick(now: number): void {
   last = now;
   render();
   if (cursor >= run.settings.duration) stop();
-  else requestAnimationFrame(tick);
+  else frame = requestAnimationFrame(tick);
 }
 
 form.addEventListener("submit", (event) => {
@@ -250,7 +253,7 @@ play.addEventListener("click", () => {
   play.textContent = "Ⅱ Pause";
   play.setAttribute("aria-label", "Pause model timeline");
   document.body.classList.remove("paused");
-  requestAnimationFrame(tick);
+  frame = requestAnimationFrame(tick);
 });
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) stop();

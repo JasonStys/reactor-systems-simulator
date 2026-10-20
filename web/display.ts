@@ -70,7 +70,7 @@ export function parseSettings(value: unknown): Settings {
     feedback: [0, 0.15],
   };
   if (
-    Object.keys(item).some((key) => !(key in choices)) ||
+    Object.keys(item).some((key) => !Object.hasOwn(choices, key)) ||
     Object.entries(choices).some(([key, values]) => !values.includes(item[key]))
   ) {
     return { ...defaults };
