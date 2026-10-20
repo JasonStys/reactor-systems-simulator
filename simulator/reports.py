@@ -1,7 +1,7 @@
 """Portable JSON/CSV/HTML evidence and transactional history by Jason Stys.
 
 Functions: export_report, save_history. Variables: supported formats, SQL schema.
-All output escapes HTML and neutralizes spreadsheet formula cells. Line map: docs/CODE_INDEX.md.
+HTML escapes evidence; CSV emits generated IDs, fixed labels and numbers. Line map: docs/CODE_INDEX.md.
 """
 
 import csv
@@ -18,7 +18,7 @@ from simulator.engine import run_id
 
 
 def export_report(run: dict[str, Any], format_name: str) -> tuple[bytes, str]:
-    """Render inert reports; CSV contains explicit sample units and evidence identifiers."""
+    """Render generated build_run evidence, not uploads; CSV uses fixed units and identifiers."""
     if format_name == "json":
         return (json.dumps(run, indent=2, allow_nan=False) + "\n").encode(), "application/json"
     if format_name == "csv":

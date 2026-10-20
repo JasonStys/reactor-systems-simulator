@@ -21,6 +21,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/USER_GUIDE.md` — # User guide
 - `docs/VALIDATION.md` — # Validation evidence and test strategy
 - `docs/images/workbench.jpg` — Binary screenshot asset from local application validation
+- `docs/reports/ci-validation.json` — Actual successful functional-source Validation and CodeQL run identities and job conclusions.
 - `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
 - `launcher.py` — """Portable application entry point by Jason Stys; main and argv: docs/CODE_INDEX.md.
 - `licenses/PYTHON.txt` — A. HISTORY OF THE SOFTWARE
@@ -35,7 +36,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `requirements-dev.in` — Scientific test, type, style, audit and packaging dependency inputs.
 - `requirements-dev.lock` — Universal pinned development/build graph with distribution hashes.
 - `requirements.in` — Standard-library-only Python runtime declaration (no third-party runtime packages).
-- `requirements.lock` — Universal pinned Python runtime graph with approved distribution hashes.
+- `requirements.lock` — Empty runtime lock: this service uses only the CPython standard library.
 - `simulator/__init__.py` — """Reactor Systems Simulator by Jason Stys. Constants: VERSION; line map: docs/CODE_INDEX.md."""
 - `simulator/__main__.py` — """Local website launcher and reproducible export CLI by Jason Stys.
 - `simulator/engine.py` — """Bounded C++ thermal-worker adapter and reproducible evidence by Jason Stys.

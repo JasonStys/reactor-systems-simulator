@@ -51,3 +51,19 @@ def test_inventory_path_confinement(tmp_path, monkeypatch):
     monkeypatch.setattr(verify_repo, "listed_paths", lambda: ["../outside.txt"])
     with pytest.raises(ValueError, match="leave its repository"):
         verify_repo.source_files()
+
+
+def test_native_declarations(tmp_path, monkeypatch):
+    """Native references, container variables and structured bindings get exact line entries."""
+    monkeypatch.setattr(verify_repo, "ROOT", tmp_path)
+    monkeypatch.setattr(verify_repo, "listed_paths", lambda: ["fixture.cpp"])
+    (tmp_path / "fixture.cpp").write_text(
+        "/* Fixture by Jason Stys. */\n"
+        "void emit(const Report& report) {\n"
+        "  const std::array<double, 2> values{1,2};\n"
+        "  const auto [command, cooling] = forcing(config, time);\n}\n",
+        encoding="utf-8",
+    )
+    index, _ = verify_repo.inventory()
+    for expected in ("| 2 | `report`", "| 3 | `values`", "| 4 | `command`", "| 4 | `cooling`"):
+        assert expected in index

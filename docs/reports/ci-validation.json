@@ -1,0 +1,89 @@
+{
+  "author": "Jason Stys",
+  "scope": "Completed functional-source validation; subsequent documentation/inventory-only refinements are checked again by main's live workflows.",
+  "runs": [
+    {
+      "conclusion": "success",
+      "headSha": "f132d8a67c463ed1886f4ece1a264f488c3b0452",
+      "jobs": [
+        {
+          "name": "Science / ubuntu-latest / Python 3.12",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C++ / Clang AddressSanitizer + UndefinedBehaviorSanitizer",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Portable app / windows-latest",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Browser / Chromium + Firefox + WebKit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C++ / GCC line coverage",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Science / ubuntu-latest / Python 3.14",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Portable app / ubuntu-latest",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Portable app / macos-latest",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Science / windows-latest / Python 3.14",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Science / macos-latest / Python 3.14",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/JasonStys/reactor-systems-simulator/actions/runs/39496722029",
+      "workflowName": "Validation"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "f132d8a67c463ed1886f4ece1a264f488c3b0452",
+      "jobs": [
+        {
+          "name": "Analyze / cpp",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Analyze / javascript-typescript",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Analyze / python",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/JasonStys/reactor-systems-simulator/actions/runs/39496722159",
+      "workflowName": "CodeQL"
+    }
+  ]
+}

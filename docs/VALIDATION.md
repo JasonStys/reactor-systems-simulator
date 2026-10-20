@@ -4,16 +4,16 @@ Author: Jason Stys. Status below distinguishes local observations from hosted ch
 
 ## Local results — 2026-10-20
 
-| Check                                               | Observed result                                                                                                  |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| C++20 MSVC 19.51, Release, warnings as errors       | Build and 3 CTest entries passed                                                                                 |
-| Python 3.14.6 unit/property/scientific/HTTP/SQL/CLI | 98 passed; 99.44% combined line/branch coverage; 90% gate                                                        |
-| TypeScript display/preference units                 | 15 passed                                                                                                        |
-| Chromium / WebKit production-server tests           | 12 passed (six each), including real downloads, failures, stale responses, keyboard/mobile and axe scans         |
-| Firefox production-server tests                     | 6 passed; all 18 browser tests passed across three engines                                                       |
-| Dependency audits                                   | npm: 0 vulnerabilities; pip-audit: no known vulnerabilities in locked development graph                          |
-| Ruff / strict mypy / TypeScript production build    | Passed in local checks                                                                                           |
-| Windows frozen portable app                         | Real executable export, built assets, health and scenario API smoke passed; hosted cross-platform checks pending |
+| Check                                               | Observed result                                                                                                              |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| C++20 MSVC 19.51, Release, warnings as errors       | Build and 3 CTest entries passed                                                                                             |
+| Python 3.14.6 unit/property/scientific/HTTP/SQL/CLI | 99 passed; 99.44% combined line/branch coverage; 90% gate                                                                    |
+| TypeScript display/preference units                 | 15 passed                                                                                                                    |
+| Chromium / WebKit production-server tests           | 12 passed (six each), including real downloads, failures, stale responses, keyboard/mobile and axe scans                     |
+| Firefox production-server tests                     | 6 passed; all 18 browser tests passed across three engines                                                                   |
+| Dependency audits                                   | npm: 0 vulnerabilities; pip-audit: no known vulnerabilities in locked development graph                                      |
+| Ruff / strict mypy / TypeScript production build    | Passed in local checks                                                                                                       |
+| Windows frozen portable app                         | Real executable export, built assets, health and scenario API smoke passed; hosted builds also passed on all three platforms |
 
 The first local MSBuild attempt was blocked by sandbox registry access before compilation; stable Visual Studio selection and normal build permissions resolved that environment issue. Initial test fixtures also required a writable temporary directory in this sandbox; no product permissions or OS protections were weakened. Source-level defects found during development included missing CSS import types and event-boundary instantaneous output convention; both were corrected before publication.
 
@@ -35,7 +35,15 @@ Browser tests use the built production assets and production handler, not mocked
 
 Validation: Linux Python 3.12/3.14, Windows/macOS Python 3.14; compiled C++ on each, Python coverage, style/types/inventory, browser engines, audits, Clang ASan+UBSan, GCC production line coverage and three frozen platform smoke builds. CodeQL analyzes C++, Python and JavaScript/TypeScript with security-and-quality queries. Manual release packaging additionally requires those exact-SHA checks to pass.
 
-Workflow links and final release evidence will be recorded after actual hosted completion. A green test is not a physical validation, guarantee against unknown defects, or certification for nuclear operations.
+[Completed Validation](https://github.com/JasonStys/reactor-systems-simulator/actions/runs/39496722029) passed all ten jobs at functional-source commit `f132d8a67c463ed1886f4ece1a264f488c3b0452`. [Completed CodeQL](https://github.com/JasonStys/reactor-systems-simulator/actions/runs/39496722159) passed all three language analyses; the open-alert query returned zero findings. The machine-readable [CI snapshot](reports/ci-validation.json) records these actual run/job identities, not fabricated results. Subsequent documentation/inventory refinements add one documentation regression test (98 to 99); the live [main-branch workflow page](https://github.com/JasonStys/reactor-systems-simulator/actions) is authoritative for the final commit and release gates.
+
+GCC measured **98.2% production C++ line coverage (110/112), 100% function coverage (8/8), and 69.5% branch coverage (132/190)**. Branch coverage is reported, not silently represented as complete; exception/compound-condition paths remain. Linux Clang ASan+UBSan passed. Frozen app smoke checks passed on Windows, macOS and Linux; all 18 hosted browser cases passed without skipping engines or export formats. Dependency audits found no known vulnerabilities in the checked graphs.
+
+The [initial hosted Validation](https://github.com/JasonStys/reactor-systems-simulator/actions/runs/39496236919) caught a WebKit/Linux download timeout (17 browser cases passed). This was not an Actions storage-upload failure. Explicit HTML download semantics were added, and browser tests use reduced motion to remove smooth-scroll/decorative timing effects; format-specific diagnostics remain. The subsequent complete run verifies the correction; the failed run is retained as transparent development evidence. No test was skipped, no blanket retry enabled, and no user storage was deleted.
+
+Actions billing was checked before work and again after hosted validation: 0.5/0.5 GB included storage, separately from roughly 58 MB live account-wide artifacts and 15.2 GB rebuildable caches at the initial inventory. This repository's API inventory reported **zero artifacts and zero caches**. No cleanup occurred. [Portable releases](https://github.com/JasonStys/reactor-systems-simulator/releases) are generated through the exact-commit-gated manual workflow; see [release procedure](RELEASE.md).
+
+A green test is not a physical validation, guarantee against unknown defects, or certification for nuclear operations.
 
 ## Measured numerical and performance report
 
