@@ -221,12 +221,13 @@ Line numbers refer to formatted source, not this generated document.
 | 18 | `trace` |
 | 19 | `screenshot` |
 | 20 | `video` |
-| 25 | `webServer` |
-| 26 | `command` |
-| 27 | `url` |
-| 28 | `reuseExistingServer` |
-| 29 | `timeout` |
-| 32 | `projects` |
+| 21 | `reducedMotion` |
+| 26 | `webServer` |
+| 27 | `command` |
+| 28 | `url` |
+| 29 | `reuseExistingServer` |
+| 30 | `timeout` |
+| 33 | `projects` |
 
 ## simulator/__init__.py
 
@@ -610,12 +611,12 @@ Line numbers refer to formatted source, not this generated document.
 | 10 | `errors` |
 | 30 | `original` |
 | 47 | `format` |
-| 48 | `pending` |
-| 50 | `download` |
-| 51 | `payload` |
-| 54 | `report` |
-| 103 | `width` |
-| 108 | `scan` |
+| 49 | `pending` |
+| 51 | `download` |
+| 52 | `payload` |
+| 55 | `report` |
+| 104 | `width` |
+| 109 | `scan` |
 
 ## tools/build_native.py
 
@@ -980,20 +981,20 @@ Line numbers refer to formatted source, not this generated document.
 | 159 | `cursor` |
 | 165 | `format` |
 | 166 | `link` |
-| 182 | `run` |
-| 186 | `id` |
-| 202 | `format` |
-| 203 | `link` |
-| 215 | `tick` |
-| 217 | `cursor` |
-| 218 | `last` |
-| 226 | `load` |
-| 231 | `load` |
-| 234 | `load` |
-| 238 | `cursor` |
-| 247 | `playing` |
-| 248 | `last` |
-| 257 | `load` |
+| 183 | `run` |
+| 187 | `id` |
+| 203 | `format` |
+| 204 | `link` |
+| 216 | `tick` |
+| 218 | `cursor` |
+| 219 | `last` |
+| 227 | `load` |
+| 232 | `load` |
+| 235 | `load` |
+| 239 | `cursor` |
+| 248 | `playing` |
+| 249 | `last` |
+| 258 | `load` |
 
 ## web/style.css
 

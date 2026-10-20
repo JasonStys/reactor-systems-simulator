@@ -45,6 +45,7 @@ test("applied parameters, timeline, reference comparison and real downloads", as
   await expect(page.locator("#clock")).not.toHaveText("240");
   await page.getByRole("button", { name: "Pause model timeline", exact: true }).click();
   for (const format of ["json", "csv", "html"]) {
+    console.info(`Verifying real ${format.toUpperCase()} download`);
     const pending = page.waitForEvent("download");
     await page.locator(`#${format}`).click();
     const download = await pending;

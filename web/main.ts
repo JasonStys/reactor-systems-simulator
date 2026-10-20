@@ -165,6 +165,7 @@ async function load(): Promise<void> {
     for (const format of ["json", "csv", "html"]) {
       const link = element<HTMLAnchorElement>(format);
       link.href = `/api/report?${query}&format=${format}`;
+      link.download = format === "csv" ? "thermal-samples.csv" : `thermal-evidence.${format}`;
       link.classList.remove("disabled");
       link.removeAttribute("aria-disabled");
     }
