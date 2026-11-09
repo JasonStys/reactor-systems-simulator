@@ -146,6 +146,7 @@ async function load(): Promise<void> {
   request?.abort();
   request = new AbortController();
   stop();
+  document.getElementById("forcing-comparison")?.setAttribute("hidden", "");
   const selected = settings();
   status.textContent = "Computing reviewed local experiment…";
   play.disabled = true;
@@ -159,6 +160,26 @@ async function load(): Promise<void> {
     const result = (await response.json()) as Run;
     if (current !== generation) return;
     run = result;
+    let comparison = document.getElementById("forcing-comparison");
+    if (!comparison) {
+      comparison = document.createElement("section");
+      comparison.id = "forcing-comparison";
+      comparison.className = "panel";
+      element("sample-table").closest("section")!.after(comparison);
+    }
+    comparison.replaceChildren();
+    comparison.hidden = false;
+    const heading = document.createElement("h2");
+    heading.textContent = "Matched forcing comparison";
+    const note = document.createElement("p");
+    note.textContent =
+      "Compare this experiment with constant forcing at identical demand, cooling, inertia and generic derating settings. Only the scenario forcing changes. The existing dashed default-reference curves remain separate. All values and model time are invented and dimensionless; sampled deviations are not physical predictions, reactor behavior or safety thresholds.";
+    comparison.append(heading, note);
+    for (const item of run.forcing_comparison) {
+      const row = document.createElement("p");
+      row.textContent = `${item.field}: largest sampled |difference| ${number(item.peak_absolute_difference)} at model time ${item.peak_sample_time}; signed difference ${number(item.peak_signed_difference)}; end difference ${number(item.end_difference)}; first difference above numerical1e−9 tolerance ${item.first_difference_time ?? "none"}. Difference = experiment − matched constant-forcing case.`;
+      comparison.append(row);
+    }
     cursor = 0;
     timeline.max = String(run.settings.duration);
     element("horizon").textContent = `/ ${run.settings.duration}`;

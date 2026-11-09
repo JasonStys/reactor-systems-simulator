@@ -14,6 +14,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `README.md` — # Reactor Systems Simulator
 - `docs/API.md` — # Local API and evidence contract
 - `docs/ARCHITECTURE.md` — # Architecture and decision record
+- `docs/MATCHED_FORCING.md` — # Compare a matched forcing lesson
 - `docs/MODEL.md` — # Model, assumptions and limits
 - `docs/RELEASE.md` — # Build, release and rollback
 - `docs/SECURITY.md` — # Security and privacy
@@ -21,6 +22,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/USER_GUIDE.md` — # User guide
 - `docs/VALIDATION.md` — # Validation evidence and test strategy
 - `docs/images/workbench.jpg` — Binary screenshot asset from local application validation
+- `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Matched forcing lesson validation — 2026-11-09
 - `docs/reports/ci-validation.json` — Actual successful functional-source Validation and CodeQL run identities and job conclusions.
 - `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
 - `launcher.py` — """Portable application entry point by Jason Stys; main and argv: docs/CODE_INDEX.md.
@@ -39,12 +41,14 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `requirements.lock` — Empty runtime lock: this service uses only the CPython standard library.
 - `simulator/__init__.py` — """Reactor Systems Simulator by Jason Stys. Constants: VERSION; line map: docs/CODE_INDEX.md."""
 - `simulator/__main__.py` — """Local website launcher and reproducible export CLI by Jason Stys.
+- `simulator/comparison.py` — """Matched-forcing educational thermal comparison by Jason Stys.
 - `simulator/engine.py` — """Bounded C++ thermal-worker adapter and reproducible evidence by Jason Stys.
 - `simulator/reports.py` — """Portable JSON/CSV/HTML evidence and transactional history by Jason Stys.
 - `simulator/resources/history.sql` — -- Immutable local experiment history by Jason Stys. Tables/triggers: docs/CODE_INDEX.md.
 - `simulator/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
 - `tests/display.test.ts` — /** Pure presentation regression tests by Jason Stys; symbols/variables: docs/CODE_INDEX.md. */
 - `tests/test_docs.py` — """Cross-platform generated-documentation regression tests by Jason Stys.
+- `tests/test_forcing_comparison.py` — """Independent dimensionless matched-forcing comparisons by Jason Stys.
 - `tests/test_io.py` — """CLI, report, SQLite and actual loopback HTTP integration tests by Jason Stys.
 - `tests/test_science.py` — """Independent numerical and worker-boundary validation by Jason Stys.
 - `tests/ui.spec.ts` — /** Production browser, accessibility, export and resilience tests by Jason Stys.

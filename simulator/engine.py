@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from simulator import VERSION
+from simulator.comparison import forcing_comparison
 
 SCENARIOS = {
     "baseline": "Constant source",
@@ -172,6 +173,7 @@ def build_run(settings: Settings | None = None) -> dict[str, Any]:
     settings = settings or Settings()
     experiment = json.loads(compute(settings))
     reference = json.loads(compute(Settings(duration=settings.duration)))
+    matched = json.loads(compute(Settings(**(asdict(settings) | {"scenario": "baseline"}))))
     run = {
         "schema": "reactor-thermal-evidence/1",
         "author": "Jason Stys",
@@ -198,6 +200,8 @@ def build_run(settings: Settings | None = None) -> dict[str, Any]:
         },
         "experiment": experiment,
         "reference": reference,
+        "matched_reference": matched,
+        "forcing_comparison": forcing_comparison(experiment, matched),
         "events": {
             "baseline": [],
             "demand-step": [{"time": 120, "label": "Demand × 1.2"}],

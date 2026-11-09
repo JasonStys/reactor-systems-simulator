@@ -281,62 +281,81 @@ Line numbers refer to formatted source, not this generated document.
 | 55 | `variable server` |
 | 56 | `variable url` |
 
+## simulator/comparison.py
+
+| Line | Definition / variable / structural identifier |
+| --- | --- |
+| 10 | `definition forcing_comparison` |
+| 10 | `parameter experiment` |
+| 10 | `parameter matched` |
+| 16 | `variable rows` |
+| 17 | `variable field` |
+| 18 | `variable differences` |
+| 20 | `variable a` |
+| 20 | `variable b` |
+| 22 | `parameter item` |
+| 22 | `variable peak` |
+| 22 | `variable time` |
+| 31 | `variable t` |
+| 31 | `variable value` |
+
 ## simulator/engine.py
 
 | Line | Definition / variable / structural identifier |
 | --- | --- |
-| 20 | `variable SCENARIOS` |
-| 26 | `variable CHOICES` |
-| 33 | `variable FIELDS` |
-| 44 | `variable LIMITATION` |
-| 52 | `definition Settings` |
-| 55 | `variable scenario` |
-| 56 | `variable duration` |
-| 57 | `variable demand` |
-| 58 | `variable cooling` |
-| 59 | `variable inertia` |
-| 60 | `variable feedback` |
-| 62 | `definition __post_init__` |
-| 62 | `parameter self` |
-| 66 | `variable choices` |
-| 66 | `variable key` |
-| 67 | `variable value` |
-| 78 | `definition catalog` |
-| 81 | `variable key` |
-| 81 | `variable label` |
-| 88 | `definition binary_path` |
-| 90 | `variable name` |
-| 93 | `variable root` |
-| 97 | `definition decode_worker` |
-| 97 | `parameter duration` |
-| 97 | `parameter raw` |
-| 102 | `variable report` |
-| 103 | `variable samples` |
-| 104 | `variable maximum` |
-| 107 | `variable errors` |
-| 108 | `variable index` |
-| 108 | `variable sample` |
-| 113 | `variable key` |
-| 116 | `variable ledger` |
-| 119 | `variable key` |
-| 132 | `definition compute` |
-| 132 | `parameter settings` |
-| 134 | `variable binary` |
-| 136 | `variable result` |
-| 151 | `variable report` |
-| 152 | `variable stream` |
-| 153 | `variable digest` |
-| 162 | `definition run_id` |
-| 162 | `parameter run` |
-| 164 | `variable key` |
-| 164 | `variable payload` |
-| 164 | `variable value` |
-| 170 | `definition build_run` |
-| 170 | `parameter settings` |
-| 172 | `variable settings` |
-| 173 | `variable experiment` |
-| 174 | `variable reference` |
-| 175 | `variable run` |
+| 21 | `variable SCENARIOS` |
+| 27 | `variable CHOICES` |
+| 34 | `variable FIELDS` |
+| 45 | `variable LIMITATION` |
+| 53 | `definition Settings` |
+| 56 | `variable scenario` |
+| 57 | `variable duration` |
+| 58 | `variable demand` |
+| 59 | `variable cooling` |
+| 60 | `variable inertia` |
+| 61 | `variable feedback` |
+| 63 | `definition __post_init__` |
+| 63 | `parameter self` |
+| 67 | `variable choices` |
+| 67 | `variable key` |
+| 68 | `variable value` |
+| 79 | `definition catalog` |
+| 82 | `variable key` |
+| 82 | `variable label` |
+| 89 | `definition binary_path` |
+| 91 | `variable name` |
+| 94 | `variable root` |
+| 98 | `definition decode_worker` |
+| 98 | `parameter duration` |
+| 98 | `parameter raw` |
+| 103 | `variable report` |
+| 104 | `variable samples` |
+| 105 | `variable maximum` |
+| 108 | `variable errors` |
+| 109 | `variable index` |
+| 109 | `variable sample` |
+| 114 | `variable key` |
+| 117 | `variable ledger` |
+| 120 | `variable key` |
+| 133 | `definition compute` |
+| 133 | `parameter settings` |
+| 135 | `variable binary` |
+| 137 | `variable result` |
+| 152 | `variable report` |
+| 153 | `variable stream` |
+| 154 | `variable digest` |
+| 163 | `definition run_id` |
+| 163 | `parameter run` |
+| 165 | `variable key` |
+| 165 | `variable payload` |
+| 165 | `variable value` |
+| 171 | `definition build_run` |
+| 171 | `parameter settings` |
+| 173 | `variable settings` |
+| 174 | `variable experiment` |
+| 175 | `variable reference` |
+| 176 | `variable matched` |
+| 177 | `variable run` |
 
 ## simulator/reports.py
 
@@ -467,6 +486,25 @@ Line numbers refer to formatted source, not this generated document.
 | 67 | `variable _` |
 | 67 | `variable index` |
 | 68 | `variable expected` |
+
+## tests/test_forcing_comparison.py
+
+| Line | Definition / variable / structural identifier |
+| --- | --- |
+| 11 | `definition series` |
+| 11 | `parameter values` |
+| 16 | `variable tick` |
+| 16 | `variable value` |
+| 21 | `definition test_hand_derived_signed_peak_and_first_difference` |
+| 23 | `variable rows` |
+| 25 | `variable row` |
+| 31 | `definition test_matched_constant_case_changes_only_forcing` |
+| 33 | `variable baseline` |
+| 36 | `variable row` |
+| 39 | `variable earliest` |
+| 39 | `variable scenario` |
+| 40 | `variable run` |
+| 43 | `variable row` |
 
 ## tests/test_io.py
 
@@ -636,23 +674,24 @@ Line numbers refer to formatted source, not this generated document.
 
 | Line | Definition / variable / structural identifier |
 | --- | --- |
-| 9 | `foreign` |
-| 10 | `errors` |
-| 30 | `original` |
-| 47 | `format` |
-| 49 | `pending` |
-| 51 | `download` |
-| 52 | `payload` |
-| 55 | `report` |
-| 104 | `width` |
-| 109 | `scan` |
-| 137 | `observed` |
-| 138 | `originalRequest` |
-| 139 | `originalCancel` |
-| 140 | `pending` |
-| 142 | `id` |
-| 150 | `button` |
-| 156 | `afterRestart` |
+| 19 | `run` |
+| 27 | `foreign` |
+| 28 | `errors` |
+| 48 | `original` |
+| 65 | `format` |
+| 67 | `pending` |
+| 69 | `download` |
+| 70 | `payload` |
+| 73 | `report` |
+| 122 | `width` |
+| 127 | `scan` |
+| 155 | `observed` |
+| 156 | `originalRequest` |
+| 157 | `originalCancel` |
+| 158 | `pending` |
+| 160 | `id` |
+| 168 | `button` |
+| 174 | `afterRestart` |
 
 ## tools/build_native.py
 
@@ -869,30 +908,38 @@ Line numbers refer to formatted source, not this generated document.
 | 26 | `settings` |
 | 27 | `experiment` |
 | 28 | `reference` |
-| 29 | `provenance` |
-| 30 | `events` |
-| 32 | `defaults` |
-| 33 | `scenario` |
-| 34 | `duration` |
-| 35 | `demand` |
-| 36 | `cooling` |
-| 37 | `inertia` |
-| 38 | `feedback` |
-| 42 | `number` |
-| 47 | `path` |
-| 49 | `duration` |
-| 53 | `x` |
-| 54 | `y` |
-| 61 | `parseSettings` |
-| 63 | `item` |
-| 64 | `choices` |
-| 65 | `scenario` |
-| 66 | `duration` |
-| 67 | `demand` |
-| 68 | `cooling` |
-| 69 | `inertia` |
-| 70 | `feedback` |
-| 82 | `readSettings` |
+| 29 | `matched_reference` |
+| 30 | `forcing_comparison` |
+| 31 | `field` |
+| 32 | `peak_absolute_difference` |
+| 33 | `peak_signed_difference` |
+| 34 | `peak_sample_time` |
+| 35 | `end_difference` |
+| 36 | `first_difference_time` |
+| 38 | `provenance` |
+| 39 | `events` |
+| 41 | `defaults` |
+| 42 | `scenario` |
+| 43 | `duration` |
+| 44 | `demand` |
+| 45 | `cooling` |
+| 46 | `inertia` |
+| 47 | `feedback` |
+| 51 | `number` |
+| 56 | `path` |
+| 58 | `duration` |
+| 62 | `x` |
+| 63 | `y` |
+| 70 | `parseSettings` |
+| 72 | `item` |
+| 73 | `choices` |
+| 74 | `scenario` |
+| 75 | `duration` |
+| 76 | `demand` |
+| 77 | `cooling` |
+| 78 | `inertia` |
+| 79 | `feedback` |
+| 91 | `readSettings` |
 
 ## web/env.d.ts
 
@@ -1013,29 +1060,35 @@ Line numbers refer to formatted source, not this generated document.
 | 145 | `current` |
 | 146 | `request` |
 | 147 | `request` |
-| 149 | `selected` |
-| 153 | `query` |
-| 157 | `response` |
-| 159 | `result` |
-| 161 | `run` |
-| 162 | `cursor` |
-| 168 | `format` |
-| 169 | `link` |
-| 186 | `run` |
-| 190 | `id` |
-| 206 | `format` |
-| 207 | `link` |
-| 219 | `tick` |
-| 221 | `cursor` |
-| 222 | `last` |
-| 230 | `load` |
-| 235 | `load` |
-| 238 | `load` |
+| 150 | `selected` |
+| 154 | `query` |
+| 158 | `response` |
+| 160 | `result` |
+| 162 | `run` |
+| 163 | `comparison` |
+| 165 | `comparison` |
+| 172 | `heading` |
+| 174 | `note` |
+| 178 | `item` |
+| 179 | `row` |
+| 183 | `cursor` |
+| 189 | `format` |
+| 190 | `link` |
+| 207 | `run` |
+| 211 | `id` |
+| 227 | `format` |
+| 228 | `link` |
+| 240 | `tick` |
 | 242 | `cursor` |
-| 251 | `playing` |
-| 252 | `last` |
-| 256 | `frame` |
-| 261 | `load` |
+| 243 | `last` |
+| 251 | `load` |
+| 256 | `load` |
+| 259 | `load` |
+| 263 | `cursor` |
+| 272 | `playing` |
+| 273 | `last` |
+| 277 | `frame` |
+| 282 | `load` |
 
 ## web/style.css
 
