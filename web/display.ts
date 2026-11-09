@@ -26,6 +26,15 @@ export interface Run {
   settings: Settings;
   experiment: { samples: Sample[]; max_balance_error: number };
   reference: { samples: Sample[] };
+  matched_reference: { samples: Sample[] };
+  forcing_comparison: {
+    field: string;
+    peak_absolute_difference: number;
+    peak_signed_difference: number;
+    peak_sample_time: number;
+    end_difference: number;
+    first_difference_time: number | null;
+  }[];
   provenance: { worker_sha256: string; limitation: string; method: string };
   events: { time: number; label: string }[];
 }

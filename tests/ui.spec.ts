@@ -5,6 +5,24 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFile } from "node:fs/promises";
 
+test("matched forcing control separates scenario effects from default parameters", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+  await expect(page.getByRole("status")).toContainText("Experiment ready");
+  await expect(page.locator("#forcing-comparison")).toContainText("invented and dimensionless");
+  await page.locator("#scenario").selectOption("cooling-dip");
+  await page.getByRole("button", { name: "Run experiment" }).click();
+  await expect(page.locator("#run-label")).toHaveText("COOLING-DIP");
+  await expect(page.locator("#forcing-comparison")).toContainText("experiment − matched");
+  const run = await (await request.get("/api/run?scenario=cooling-dip")).json();
+  expect(run.forcing_comparison).toHaveLength(4);
+  expect(
+    run.forcing_comparison.find((row: { field: string }) => row.field === "hot")
+      .peak_absolute_difference,
+  ).toBeGreaterThan(0);
+});
 test("local-only initial experiment and explicit model boundary", async ({ page }) => {
   const foreign: string[] = [];
   const errors: string[] = [];

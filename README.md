@@ -5,6 +5,8 @@
 
 A local, interactive **fictional thermal-system learning workbench** by [Jason Stys](https://github.com/JasonStys). C++ computes an energy-conserving two-node analogy; TypeScript visualizes it; Python serves the app and produces auditable reports. SQL supports optional local immutable experiment history.
 
+The [matched forcing comparison](docs/MATCHED_FORCING.md) now isolates scenario changes against a constant-forcing control at identical settings, with sampled signed/absolute deviations and explicit model-time witnesses. It remains a dimensionless teaching analogy and adds no reactor physics or operating guidance.
+
 Despite its nuclear-energy learning context and name, this is **not reactor physics**. It cannot design, predict, monitor, control or assess the safety of any real reactor. All coefficients, inputs, time and outputs are invented and dimensionless. It has no fuel/rod selection, neutron kinetics, criticality, radiation/dose, decay heat or real telemetry. Source-off is not a nuclear shutdown/SCRAM model. See [model boundary](docs/MODEL.md).
 
 ![The local thermal experiment workbench](docs/images/workbench.jpg)
