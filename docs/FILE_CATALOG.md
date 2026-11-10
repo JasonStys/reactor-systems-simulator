@@ -50,6 +50,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `simulator/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
 - `tests/display.test.ts` — /** Pure presentation regression tests by Jason Stys; symbols/variables: docs/CODE_INDEX.md. */
 - `tests/test_docs.py` — """Cross-platform generated-documentation regression tests by Jason Stys.
+- `tests/test_draft_lookup.py` — Independent draft/public/pagination/identity and transport-failure lookup cases.
 - `tests/test_forcing_comparison.py` — """Independent dimensionless matched-forcing comparisons by Jason Stys.
 - `tests/test_io.py` — """CLI, report, SQLite and actual loopback HTTP integration tests by Jason Stys.
 - `tests/test_package_info.py` — Frozen metadata corruption, explicit source mode and pre-bind owned-instance marker regressions.
@@ -58,6 +59,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tests/test_science.py` — """Independent numerical and worker-boundary validation by Jason Stys.
 - `tests/ui.spec.ts` — /** Production browser, accessibility, export and resilience tests by Jason Stys.
 - `tools/build_native.py` — """Cross-platform C++ build/test orchestration by Jason Stys.
+- `tools/draft_lookup.py` — Complete bounded authenticated release listing, unique tag and immutable-ID draft validation.
 - `tools/legacy_smoke.py` — Preserved native domain CLI, resource, license, persistence and HTTP acceptance under active guards.
 - `tools/measure.py` — """Regenerate local numerical/performance evidence by Jason Stys.
 - `tools/native_browser.mjs` — Owned Chromium context, local resource boundary, version and real-error acceptance.
