@@ -22,7 +22,7 @@ Despite its nuclear-energy learning context and name, this is **not reactor phys
 
 ## Run the app
 
-Download the matching portable ZIP and its SHA-256 file from [Releases](https://github.com/JasonStys/reactor-systems-simulator/releases). Verify the checksum, extract **the entire ZIP**, then launch `ReactorSystemsSimulator.exe` (Windows) or `ReactorSystemsSimulator` (Linux/macOS). A local browser window opens; closing its console stops the service. No compiler, Node, Python setup, admin rights or real reactor data is needed for packaged apps.
+Download the matching versioned portable archive (Windows ZIP; Linux/macOS `.tar.gz`) and its SHA-256 file from [Releases](https://github.com/JasonStys/reactor-systems-simulator/releases). Verify the checksum, extract **the entire archive**, then launch `ReactorSystemsSimulator.exe` (Windows) or `ReactorSystemsSimulator` (Linux/macOS). A local browser window opens; closing its console stops the service. No compiler, Node, Python setup, admin rights or real reactor data is needed for packaged apps.
 
 The bundles are **unsigned**, not notarized or store-certified. Do not disable OS protections or bypass warnings; build reviewed source if your OS blocks the bundle. Builds target the architecture listed on each asset, not every architecture. Mobile uses a compatible browser connected to its own local runtime; no native Android/iOS package or public hosting is provided. The server deliberately does not expose a LAN/public address.
 
@@ -68,7 +68,7 @@ npm run audit
 python tools/package_app.py
 ```
 
-Linux also runs Clang AddressSanitizer/UndefinedBehaviorSanitizer and GCC coverage. [Validation evidence](docs/VALIDATION.md) distinguishes numerical verification from physical validation. CI gates Python branch/line coverage at 90% and production C++ line coverage at 90%; it does not hide exclusions. Actions uploads no run artifacts or caches. Release ZIPs go directly to draft GitHub Releases after successful exact-commit checks.
+Linux also runs Clang AddressSanitizer/UndefinedBehaviorSanitizer and GCC coverage. [Validation evidence](docs/VALIDATION.md) distinguishes numerical verification from physical validation. CI gates Python branch/line coverage at 90% and production C++ line coverage at 90%; it does not hide exclusions. Actions uploads no run artifacts or caches. Release archives go directly to draft GitHub Releases after successful exact-commit checks.
 
 ## Project map
 
@@ -92,3 +92,20 @@ Every file is summarized in [FILE_CATALOG](docs/FILE_CATALOG.md). Code headers d
 [User guide](docs/USER_GUIDE.md) · [Model & assumptions](docs/MODEL.md) · [Architecture / ADR](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Security](docs/SECURITY.md) · [Validation](docs/VALIDATION.md) · [Release guide](docs/RELEASE.md) · [Dependencies](docs/THIRD_PARTY.md)
 
 Created by **Jason Stys**. [Portfolio/contact profile](https://github.com/JasonStys) · [Issues](https://github.com/JasonStys/reactor-systems-simulator/issues). MIT licensed; no certification, regulatory approval or suitability for nuclear operations is implied.
+
+## Portable release identity
+
+The 1.1 release contract keeps the software version consistent across Python, npm, the
+running service and the UI. Versioned archives include `RELEASE.json` with source commit,
+platform and clean/dirty build status. Packaging tests the **freshly extracted** application,
+including its new practical workflow, from an unrelated temporary working directory.
+Windows uses ZIP; Linux/macOS use `.tar.gz` to preserve required native links and permissions.
+Published 1.0 assets remain unchanged. Check the selected release's source and version rather
+than assuming an older download contains current source improvements. See the
+[portable operation and release guide](docs/RELEASE.md).
+
+Observed local packaging checks and boundaries: [portable 1.1 validation](docs/reports/PORTABLE_RELEASE_20261109.md).
+
+Draft discovery uses a bounded complete authenticated release listing and numeric-ID
+verification; a published-only tag lookup cannot prove that an untagged draft is absent.
+The release guide documents fail-closed ambiguity/history limits and the no-overwrite policy.
