@@ -21,11 +21,17 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/THIRD_PARTY.md` — # Dependencies and research
 - `docs/USER_GUIDE.md` — # User guide
 - `docs/VALIDATION.md` — # Validation evidence and test strategy
+- `docs/handbook.md` — # Reactor Systems Simulator handbook
 - `docs/images/workbench.jpg` — Binary screenshot asset from local application validation
 - `docs/reports/PORTABLE_RELEASE_20261109.md` — # Portable 1.1 release validation — 2026-11-09
 - `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Matched forcing lesson validation — 2026-11-09
 - `docs/reports/ci-validation.json` — Actual successful functional-source Validation and CodeQL run identities and job conclusions.
+- `docs/reports/documentation-refresh-2026-11-09.md` — # Documentation refresh — 2026-11-09
 - `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
+- `docs/reports/project-guide.docx` — Reviewed Word project guide bound to the documented source revision.
+- `docs/reports/publications.json` — Exact Office publication byte identities, approved page/tab scopes and immutable source baselines.
+- `docs/reports/validation-evidence.xlsx` — Reviewed Excel workflow and test-source Tables with recalculated outcome formulas.
+- `docs/reports/validation-review.docx` — Reviewed Word validation evidence and explicit test/analysis limitations.
 - `launcher.py` — """Portable application entry point by Jason Stys; main and argv: docs/CODE_INDEX.md.
 - `licenses/PYTHON.txt` — A. HISTORY OF THE SOFTWARE
 - `native/cli.cpp` — /* Bounded native JSON worker by Jason Stys.
