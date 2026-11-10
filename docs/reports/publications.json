@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "project": "reactor-systems-simulator",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+  "sourceUrl": "https://github.com/JasonStys/reactor-systems-simulator/tree/a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+  "functionalEvidenceBaseline": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42752810305,
+      "event": "push",
+      "headSha": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/reactor-systems-simulator/actions/runs/42752810305"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42752810464,
+      "event": "push",
+      "headSha": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+      "name": "Validation",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/reactor-systems-simulator/actions/runs/42752810464"
+    }
+  ],
+  "summary": "Explore fictional dimensionless thermal lessons, compare forcing with matched baselines and export sampled differences through 1.1 portable apps.",
+  "rationale": "Packages the numerical kernel and explanatory interface so a reviewer can distinguish changed forcing from changed assumptions and inspect the same evidence after extraction.",
+  "limitations": [
+    "A fictional thermal analogy, with no nuclear physics, fuel, neutron, criticality, radiation or real-plant monitoring/control.",
+    "Sampled extrema and numerical tolerances are not physical measurements, safety limits or operating recommendations.",
+    "Unsigned educational desktop portable packages; no system installer, native mobile app, plant connection or safety certification."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 90303,
+      "sha256": "b9db0394d443879568faff22db39a321db087a7f96ffa500fe20a397b6736a04",
+      "sourceBaseline": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "455060ce3051091fd01d3bc751f27293037f820fadf71bfa8348634c94491be1",
+          "page-2.png": "ed82f5c6b37fbd80f53580086db428e15562513efca38ca5eb0b5050aabd1725",
+          "page-3.png": "7146d76c528f26befe66d6f68320d5cf0670c42d7e492ec3b8f36af0c62eb3ca",
+          "page-4.png": "2e59dcd4d3a200b2a713a08322e65c30087e692652e85ed5cdc15afc9e5ed6f7"
+        }
+      }
+    },
+    {
+      "filename": "validation-review.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 43667,
+      "sha256": "df8cc7bb8302e529fdf6301c1ae6bbb5709f5f7a0067e11bcc650591fc34aaa2",
+      "sourceBaseline": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "c9d436cc1221d85b10fb90638fb49b88a8747470b637c1cbe06ba949dc7a01ce",
+          "page-2.png": "c05115adbba561b9f0a9f33a11060fc60f930116e18aa9d6388072bfdf4fcf02",
+          "page-3.png": "08d577354712745b359f1bf2578e0a7635139a6c86df4b264fac03e4173d56f7",
+          "page-4.png": "533e7a4ba9853060d120664e9441a41e1ef51ba9cc9a312d7e2517cc94be2ad8"
+        }
+      }
+    },
+    {
+      "filename": "validation-evidence.xlsx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "bytes": 7388,
+      "sha256": "6a668366b06626ad045462f2010ffb2cd0aa37c397b7b07def018e4ba059b168",
+      "sourceBaseline": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+      "visualReview": {
+        "approved": true,
+        "tabsReviewed": ["Workflow evidence", "Test sources"],
+        "previewSha256": {
+          "workflow-evidence.png": "f4bbb1251480696c576222eb5af31513399ce9027e79f55e70e5d8429bb9c333",
+          "test-sources.png": "66de4d71076e76356064eca95939b9dde4a141ed5d289c43477da9ff9cbf4453"
+        },
+        "tables": [
+          {
+            "name": "WorkflowEvidence",
+            "range": "A7:D9",
+            "autoFilter": true
+          },
+          {
+            "name": "TestSources",
+            "range": "A7:C18",
+            "autoFilter": true
+          }
+        ],
+        "formulaCount": 4,
+        "failureSensitivityReceiptPassed": true,
+        "formulaErrors": 0
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
