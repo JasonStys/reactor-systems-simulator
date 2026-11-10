@@ -4,6 +4,7 @@
  * All API data is local reviewed evidence; text uses textContent, never remote HTML.
  */
 import "./style.css";
+import { appendReleaseVersion } from "./release-version";
 import {
   defaults,
   number,
@@ -280,3 +281,5 @@ document.addEventListener("visibilitychange", () => {
   if (document.hidden) stop();
 });
 void load();
+
+appendReleaseVersion();

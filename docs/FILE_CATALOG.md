@@ -16,12 +16,13 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/ARCHITECTURE.md` — # Architecture and decision record
 - `docs/MATCHED_FORCING.md` — # Compare a matched forcing lesson
 - `docs/MODEL.md` — # Model, assumptions and limits
-- `docs/RELEASE.md` — # Build, release and rollback
+- `docs/RELEASE.md` — # Portable application and release runbook
 - `docs/SECURITY.md` — # Security and privacy
 - `docs/THIRD_PARTY.md` — # Dependencies and research
 - `docs/USER_GUIDE.md` — # User guide
 - `docs/VALIDATION.md` — # Validation evidence and test strategy
 - `docs/images/workbench.jpg` — Binary screenshot asset from local application validation
+- `docs/reports/PORTABLE_RELEASE_20261109.md` — # Portable 1.1 release validation — 2026-11-09
 - `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Matched forcing lesson validation — 2026-11-09
 - `docs/reports/ci-validation.json` — Actual successful functional-source Validation and CodeQL run identities and job conclusions.
 - `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
@@ -43,6 +44,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `simulator/__main__.py` — """Local website launcher and reproducible export CLI by Jason Stys.
 - `simulator/comparison.py` — """Matched-forcing educational thermal comparison by Jason Stys.
 - `simulator/engine.py` — """Bounded C++ thermal-worker adapter and reproducible evidence by Jason Stys.
+- `simulator/package_info.py` — Bounded frozen release identity; source mode never borrows a packaged-source claim.
 - `simulator/reports.py` — """Portable JSON/CSV/HTML evidence and transactional history by Jason Stys.
 - `simulator/resources/history.sql` — -- Immutable local experiment history by Jason Stys. Tables/triggers: docs/CODE_INDEX.md.
 - `simulator/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
@@ -50,15 +52,23 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tests/test_docs.py` — """Cross-platform generated-documentation regression tests by Jason Stys.
 - `tests/test_forcing_comparison.py` — """Independent dimensionless matched-forcing comparisons by Jason Stys.
 - `tests/test_io.py` — """CLI, report, SQLite and actual loopback HTTP integration tests by Jason Stys.
+- `tests/test_package_info.py` — Frozen metadata corruption, explicit source mode and pre-bind owned-instance marker regressions.
+- `tests/test_portable_archive.py` — Actual archive bytes, traversal/link/type/budget/permission and extraction regression cases.
+- `tests/test_release_contract.py` — Independent negative source/version/prerequisite/draft/hash/upload authorization cases.
 - `tests/test_science.py` — """Independent numerical and worker-boundary validation by Jason Stys.
 - `tests/ui.spec.ts` — /** Production browser, accessibility, export and resilience tests by Jason Stys.
 - `tools/build_native.py` — """Cross-platform C++ build/test orchestration by Jason Stys.
+- `tools/legacy_smoke.py` — Preserved native domain CLI, resource, license, persistence and HTTP acceptance under active guards.
 - `tools/measure.py` — """Regenerate local numerical/performance evidence by Jason Stys.
+- `tools/native_browser.mjs` — Owned Chromium context, local resource boundary, version and real-error acceptance.
+- `tools/native_feature_smoke.mjs` — Actual extracted-application new-feature UI/API/download acceptance with independent arithmetic.
 - `tools/package_app.py` — """Build portable native bundles from reviewed source by Jason Stys.
-- `tools/prepare_release.py` — """Fail-closed draft release preparation by Jason Stys.
+- `tools/portable_archive.py` — Bounded Windows ZIP/POSIX tar creation, metadata inspection and fresh safe extraction.
+- `tools/prepare_release.py` — """Prepare only a new version/source-bound draft by Jason Stys.
 - `tools/reference.py` — """Independent small RK4 reference by Jason Stys.
-- `tools/smoke_app.py` — """Actual frozen-executable export and loopback smoke test by Jason Stys.
-- `tools/upload_release.py` — """Upload only a freshly smoke-tested native bundle to its draft by Jason Stys.
+- `tools/release_contract.py` — Version/source coherence, exact-main prerequisites and immutable draft upload guards.
+- `tools/smoke_app.py` — """Actual extracted-executable CLI, HTTP and Chromium acceptance by Jason Stys.
+- `tools/upload_release.py` — """Upload one inspected source/version archive pair by Jason Stys.
 - `tools/verify_repo.py` — """Generate/check exact-line code and file inventories by Jason Stys.
 - `tsconfig.json` — Strict TypeScript contracts for browser, unit and end-user test code.
 - `vitest.config.ts` — /** Pure display-logic tests by Jason Stys; configuration inventory: docs/CODE_INDEX.md. */
@@ -66,8 +76,9 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `web/env.d.ts` — /** Vite static asset typing by Jason Stys; reference declarations: docs/CODE_INDEX.md. */
 - `web/index.html` — <!-- Reactor Systems Simulator UI by Jason Stys. Element IDs and variables: docs/CODE_INDEX.md. -->
 - `web/main.ts` — /** Applied-experiment controller by Jason Stys.
+- `web/release-version.ts` — Canonical bundled application version rendered from package.json without remote lookup.
 - `web/style.css` — /* Responsive thermal workbench by Jason Stys. Selectors/variables: docs/CODE_INDEX.md. */
 - `web/tokens.css` — /* Shared accessible color tokens by Jason Stys; variable locations: docs/CODE_INDEX.md. */
-- `web/vite.config.ts` — /** Local production asset build by Jason Stys. Configuration variables: docs/CODE_INDEX.md. */
+- `web/vite.config.ts` — /** Canonical local asset/release build by Jason Stys; symbols: docs/CODE_INDEX.md. */
 - `docs/CODE_INDEX.md` — Generated exact-line source inventory.
 - `docs/FILE_CATALOG.md` — This generated complete file index.

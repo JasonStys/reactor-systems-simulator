@@ -1,13 +1,74 @@
-# Build, release and rollback
+# Portable application and release runbook
 
-Author: Jason Stys. Portable applications open a local browser UI and run only a fictional normalized thermal analogy. They are unsigned and not intended for real reactor use.
+Maintained by Jason Stys. Reactor Systems Simulator is an unsigned educational desktop application,
+not a production hosted service, signed installer or real-equipment controller.
 
-`python tools/package_app.py` freezes the existing production web build, C++ worker and SQL resources into an OS/architecture-specific directory. It runs the **actual frozen executable** for numerical export, health, built HTML and scenario API checks before zipping the entire directory and writing SHA-256. Local builds require the documented C++/Python/Node toolchain; downloaded bundles do not.
+## Download, extract and launch
 
-The manual **Portable release** workflow creates a draft only when the exact current commit has successful Validation and CodeQL runs. Three platform jobs rebuild and smoke-test native bundles. ZIPs/checksums upload directly to that draft, never Actions artifact storage. A maintainer verifies all jobs, downloads the ZIP/checksum pairs and confirms their hashes before publishing. No automatic unsigned installer, privileged service, cloud deployment or platform store submission occurs.
+Use the official [repository releases](https://github.com/JasonStys/reactor-systems-simulator/releases).
+Version 1.1 uses a versioned **Windows ZIP** or **Linux/macOS tar.gz**, plus an adjacent
+SHA-256 file. Older published assets remain immutable and may predate current features.
 
-Verification examples: Windows `Get-FileHash -Algorithm SHA256 <zip>`; Linux `sha256sum -c <checksum>`; macOS `shasum -a 256 -c <checksum>`. Match the entire filename and digest from the same release. Checksums detect accidental corruption, not a compromised publisher. Retain the whole extracted folder. Do not disable OS protections or bypass warnings; prefer reviewed source if blocked.
+1. Select the correct CPU/OS build and compare its SHA-256 with the sidecar. On Windows,
+   `Get-FileHash -Algorithm SHA256` computes the digest; on Linux/macOS use `sha256sum`
+   or `shasum -a 256`. A checksum identifies bytes, not publisher authenticity or safety.
+2. Extract into a new user-owned folder. Windows users extract the whole ZIP. On Linux/macOS,
+   use a tar-aware extractor such as `tar -xzf <archive.tar.gz>`; tar preserves PyInstaller's
+   relative internal links and executable permissions. Do not flatten the archive, run from
+   inside it or separate the executable from `_internal` and its license notices.
+3. Inspect `ReactorSystemsSimulator/RELEASE.json`. Its name, version, source commit, platform,
+   CPU and clean/dirty status must agree with the chosen release. Published builds require
+   `source_dirty: false`; a local dirty development build is not exact-source release proof.
+4. Open `ReactorSystemsSimulator.exe` on Windows, or `./ReactorSystemsSimulator` on Linux/macOS.
+   The launcher opens your normal browser on a private ephemeral `127.0.0.1` port. Keep its
+   console open; Ctrl+C stops that process. No compiler, Python/Node setup, Docker, account,
+   administrator elevation or public host is required for the portable application.
 
-Platform support is determined by actual CI runner architecture and PyInstaller output, recorded in each asset name. macOS arm64 is not an Intel universal binary. Linux builds inherit the CI image's libc baseline, not compatibility with every older distribution. No native iOS/Android build is supplied. The responsive UI works in supported desktop/mobile browsers when a local runtime is available on that device; it is not remotely exposed by default.
+The targets are desktop Windows x64, Linux x64 and macOS arm64 under their tested runner
+conditions, not every OS version or a native mobile installation. Builds are unsigned and
+unnotarized. Respect OS/organization policy; never disable security controls to run them.
+Keep user-created histories and exports separate from installation folders. Local report
+histories are not encrypted account stores. Preserve original model/data/provenance limits.
 
-Rollback: close the owned console/app, extract a previous verified release into a new directory and launch it. There is no system installation, auto-update or background service to remove. Optional history files remain user-owned, should be backed up and are not automatically migrated/deleted. Never delete unrelated Actions runs, artifacts or caches as part of this workflow.
+## Source and package acceptance
+
+Before pushing or invoking Actions, inspect storage/billing read-only and report available
+usage with its uncertainty. Artifact bytes, accrued billing usage and caches are different
+measurements. Do not delete runs, artifacts or caches without fresh explicit authorization.
+These workflows do not upload Actions artifacts or dependency caches.
+
+Run formatting, strict types, source inventories, independent model/native tests, Python
+branch-inclusive coverage, browser unit/journey tests and dependency audits. Do not refresh
+reference results merely to hide a failure. Preserve numerical/model contracts and user data.
+
+The portable build freezes reviewed production UI/resources, writes source/version metadata,
+creates the native archive and checksum, then inspects and extracts it into a fresh temporary
+folder. Its actual extracted executable must complete CLI/resource checks, owned health/version
+proof, real built JavaScript/CSS delivery and the new-feature Chromium/API/export journey.
+No source-server substitution, mocked successful HTTP response or unrelated existing service
+can establish native acceptance. All owned test processes and browser contexts must close.
+A package launch is not clean-machine installer certification, signing or notarization.
+
+## Draft-only publication
+
+Dispatch **Portable release** on main with version `1.1.0` only after that exact clean source
+passes every configured Validation/CodeQL lane. Python, npm and runtime versions must agree.
+The conservative gate rejects missing, active, failed, foreign or ambiguous exact-source runs,
+and confirms current main before creating a **new draft**. Existing tags/releases are rejected;
+never retarget or reuse published assets.
+
+All three OS jobs build and test extracted native bundles. Upload requires the same draft
+source/version, complete embedded metadata, exact archive digest and no existing same-name
+asset. Release assets go directly to the draft, not Actions storage. No step publishes it.
+
+Before publication, verify all three native jobs and exact source checks, every archive's
+sidecar and GitHub asset digest, expected platform set and release notes. Download and test
+only newly built/reviewed assets, never historical archived Actions evidence. Record local
+execution separately from unavailable OSes' hosted evidence. Successful CodeQL execution
+does not by itself establish zero open security findings.
+
+## Teardown and recovery
+
+Stop only the test/preview processes you created. Do not kill unknown services, overwrite
+histories or modify OS security. Keep old whole-directory bundles for rollback. Fix published
+bugs under a fresh version; do not silently replace archives, hashes or old release tags.
