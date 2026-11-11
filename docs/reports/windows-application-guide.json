@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "repository": "reactor-systems-simulator",
+  "runtimeVersion": "1.1.0",
+  "runtimeSource": "a6d4fc55f12681c5b5bdec1dcd09ddb801d94683",
+  "createdAt": "2026-11-10T23:52:55.207Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide.docx",
+  "sha256": "fb9388494a3c8090413ec79e79d5ae1ef6a96cb4f464d652e3a09882cc9f2cdd",
+  "screenshots": [
+    {
+      "file": "01-fictional-baseline.png",
+      "sha256": "2399f512c2afaef292575016bfd7854da2f3580106861c56c8f83bbe7d979928",
+      "width": 1042,
+      "height": 428,
+      "caption": "Actual installed application showing fictional matched baseline. Captured during the accepted native user journey with prepared synthetic inputs."
+    },
+    {
+      "file": "02-fictional-cooling-dip.png",
+      "sha256": "ffd0248d2414578049c568d70a387b85906bdb8acd43924e1f7b88caedc5a17d",
+      "width": 1042,
+      "height": 428,
+      "caption": "Actual installed application showing fictional cooling-dip forcing comparison. Captured during the accepted native user journey with prepared synthetic inputs."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "simulator/comparison.py",
+      "first": 17,
+      "last": 32,
+      "sha256": "95a1c212af245ad7605f318eb8d5eab2b9aaa6ff694dba26cea818b3efd3c1ed",
+      "url": "https://github.com/JasonStys/reactor-systems-simulator/blob/a6d4fc55f12681c5b5bdec1dcd09ddb801d94683/simulator/comparison.py#L17"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Published package",
+      "observed": "Exact public release, provider/sidecar hashes and installed resources verified; installed bytes unchanged.",
+      "result": "Passed"
+    },
+    {
+      "name": "Actual native core",
+      "observed": "The existing packaged CLI/API and native feature acceptance helper passed on the installed executable.",
+      "result": "Passed"
+    },
+    {
+      "name": "Scenario evidence",
+      "observed": "Four dimensionless comparison series matched sample-by-sample differences and extrema. A nominal experiment had zero differences against its matched baseline.",
+      "result": "Passed"
+    },
+    {
+      "name": "UI and cleanup",
+      "observed": "Actual compiled-application browser journey passed. Both images were individually inspected; cleanup left no owned child process.",
+      "result": "Passed"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "pageCount": 4,
+    "reviewedAt": "2026-11-11T01:39:00.725621+00:00",
+    "reviewers": [
+      "root"
+    ],
+    "method": "Every page individually viewed at original resolution; unchanged previously reviewed pages retained only after exact SHA-256 match.",
+    "pageSHA256": {
+      "1": "5d66b7548e304c9b078997f18a413440c8b6218e7907dffd3fff6b68fcaae110",
+      "2": "ce0441ef2c0e321a60449367ca2bb6bad7675c5e98eb70844634ef820a4b886d",
+      "3": "fdf5eb56c98cb93985d78e28d7c5d3cfa8fc8c0d9b6f93c01ed9157a51bb7408",
+      "4": "b7fcb021099d6b30b142bb03883cf64b093db8eaadde2a502dc65bc0c8e6aee6"
+    },
+    "ooxmlSchema": "passed",
+    "issues": []
+  }
+}
