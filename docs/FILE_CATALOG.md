@@ -27,11 +27,16 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Matched forcing lesson validation — 2026-11-09
 - `docs/reports/ci-validation.json` — Actual successful functional-source Validation and CodeQL run identities and job conclusions.
 - `docs/reports/documentation-refresh-2026-11-09.md` — # Documentation refresh — 2026-11-09
+- `docs/reports/installed-windows-2026-11-10.md` — # Installed Windows application validation — 10 November 2026
 - `docs/reports/numerical-validation.json` — Measured independent-reference errors, energy residual and local cold/warm evidence timings.
 - `docs/reports/project-guide.docx` — Reviewed Word project guide bound to the documented source revision.
 - `docs/reports/publications.json` — Exact Office publication byte identities, approved page/tab scopes and immutable source baselines.
 - `docs/reports/validation-evidence.xlsx` — Reviewed Excel workflow and test-source Tables with recalculated outcome formulas.
 - `docs/reports/validation-review.docx` — Reviewed Word validation evidence and explicit test/analysis limitations.
+- `docs/reports/windows-application-guide.docx` — Individually reviewed installed-app guide with real screenshots, worked workflow, source excerpts and operating limits.
+- `docs/reports/windows-application-guide.json` — Exact illustrated-guide, screenshot and rendered-page identities plus bounded validation observations.
+- `docs/screenshots/windows-application/01-fictional-baseline.png` — Binary screenshot asset from local application validation
+- `docs/screenshots/windows-application/02-fictional-cooling-dip.png` — Binary screenshot asset from local application validation
 - `launcher.py` — """Portable application entry point by Jason Stys; main and argv: docs/CODE_INDEX.md.
 - `licenses/PYTHON.txt` — A. HISTORY OF THE SOFTWARE
 - `native/cli.cpp` — /* Bounded native JSON worker by Jason Stys.
